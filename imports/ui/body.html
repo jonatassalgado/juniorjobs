@@ -21,7 +21,7 @@
       Esconder vagas preenchidas
     </label>
 
-    <form class="new-job">
+    <form class="new-event">
       <div class="ui input">
         <input type="text" name="text" placeholder="Escreva o cargo aqui...">
       </div>
@@ -33,8 +33,8 @@
 
   <div class="ui text borderless container">
     <div class="ui three column grid">
-      {{ #each jobs }}
-      {{ >job }}
+      {{ #each events }}
+      {{ >event }}
       {{ /each }}
     </div>
   </div>

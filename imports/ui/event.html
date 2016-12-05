@@ -1,16 +1,27 @@
-<template name="job">
+<template name="event">
   <div class="column">
     <div class="ui fluid card">
+      <div class="content">
+        {{ #if isOwner }}
+        <div class="right floated meta toggle-private">
+          {{ #if private }}
+            Privado
+          {{ else }}
+            Público
+          {{ /if }}
+        </div>
+        {{ /if }}
+      </div>
       <div class="image">
         <img src="/images/avatar2/large/matthew.png">
       </div>
       <div class="content">
-        <div class="header">{{ title }}</div>
+        <div class="header">{{ title }} <i class="remove icon delete"></i></div>
         <div class="meta">
           {{ category }}
         </div>
         <div class="description">
-          Matthew is an interior designer living in New York.
+          {{ description }}
         </div>
       </div>
       <div class="extra content">
@@ -22,7 +33,5 @@
     </div>
   </div>
   <!-- <input type="checkbox" checked="{{ checked }}" class="toggle-checked"> -->
-
-  <!-- <button class="delete">&times;</button> -->
 
 </template>

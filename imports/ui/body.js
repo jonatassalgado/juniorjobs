@@ -2,43 +2,38 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
-import { Jobs } from '../api/jobs.js';
+import { Events } from '../api/events.js';
 
-import './job.js';
+import './event.js';
 import './body.html';
 
 
 Template.body.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict();
+  Meteor.subscribe('events');
 });
 
 Template.body.helpers({
-  jobs() {
+  events() {
     const instance = Template.instance();
     if (instance.state.get('hideCompleted')) {
-      return Jobs.find({ checked: { $ne: true }}, { sort: { createdAt: -1 }});
+      return Events.find({ checked: { $ne: true }}, { sort: { createdAt: -1 }});
     }
-    return Jobs.find({}, { sort: { createdAt: -1 } });
+    return Events.find({}, { sort: { createdAt: -1 } });
   },
   numberOfJobs() {
-    return Jobs.find({}).count();
+    return Events.find({}).count();
   }
 });
 
 Template.body.events({
-  'submit .new-job' (event) {
+  'submit .new-event' (event) {
     event.preventDefault();
 
     const target = event.target;
     const text = target.text.value;
 
-    Jobs.insert({
-      title: text,
-      createdAt: new Date(),
-      owner: Meteor.userId(),
-      username: Meteor.user().username,
-      category: 'leisure'
-    })
+    Meteor.call('events.insert', text);
 
     target.text.value = '';
   },
