@@ -1,0 +1,21 @@
+<body>
+  <h1>Vagas de Emprego ({{ numberOfJobs }})</h1>
+
+  {{ showCompleted }}
+
+  <label class="hide-completed">
+    <input type="checkbox"/>
+    Esconder vagas preenchidas
+  </label>
+
+  <form class="new-job">
+    <input type="text" name="text" placeholder="Escreva o cargo aqui...">
+  </form>
+
+  <ul>
+    {{ #each jobs }}
+      {{ > job }}
+    {{ /each }}
+  </ul>
+
+</body>
