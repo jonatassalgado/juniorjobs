@@ -1,11 +1,28 @@
 <template name="job">
-  <li class="{{ #if checked }} checked {{/if}}">
-    <button class="delete">&times;</button>
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="image">
+        <img src="/images/avatar2/large/matthew.png">
+      </div>
+      <div class="content">
+        <div class="header">{{ title }}</div>
+        <div class="meta">
+          {{ category }}
+        </div>
+        <div class="description">
+          Matthew is an interior designer living in New York.
+        </div>
+      </div>
+      <div class="extra content">
+        <span>
+          <i class="user icon"></i>
+          {{ username }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- <input type="checkbox" checked="{{ checked }}" class="toggle-checked"> -->
 
-    {{ showCompleted }}
+  <!-- <button class="delete">&times;</button> -->
 
-    <input type="checkbox" checked="{{ checked }}" class="toggle-checked">
-
-    <span class="title">{{ title }}</span>
-  </li>
 </template>

@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
@@ -6,11 +7,6 @@ import { Jobs } from '../api/jobs.js';
 import './job.js';
 import './body.html';
 
-
-showCompleted =  () => {
-  const instance = Template.instance();
-  return instance.state.get('hideCompleted');
-}
 
 Template.body.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict();
@@ -39,6 +35,9 @@ Template.body.events({
     Jobs.insert({
       title: text,
       createdAt: new Date(),
+      owner: Meteor.userId(),
+      username: Meteor.user().username,
+      category: 'leisure'
     })
 
     target.text.value = '';

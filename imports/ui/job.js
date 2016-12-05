@@ -7,7 +7,7 @@ import './job.html';
 
 
 Template.job.events({
-  'click .toggle-checked' (){
+  'click .toggle-checked' () {
     Jobs.update(this._id, {
       $set: { checked: ! this.checked },
     });
