@@ -1,4 +1,4 @@
-<template name="event">
+<template name="newsfeed_event">
   <div class="column">
     <div class="ui fluid card event">
       <div class="content">
@@ -16,7 +16,9 @@
 
       </div>
       <div class="content">
-        <div class="header">{{ title }} <i class="remove icon delete"></i></div>
+        <div class="header">
+          <a href="{{ pathForEvent }}"> {{ title }} </a> <i class="remove icon delete"></i>
+        </div>
         <div class="meta">
           {{ category }}
         </div>

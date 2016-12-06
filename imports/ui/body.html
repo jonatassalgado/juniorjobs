@@ -4,36 +4,8 @@
 
   <div class="ui hidden divider"></div>
 
-  <div class="ui text borderless container">
-
-    {{ #if currentUser }}
-    <!-- <label class="hide-completed">
-      <input type="checkbox"/>
-      Esconder vagas preenchidas
-    </label> -->
-
-    <h3 class="ui header">Criar novo evento</h3>
-    <div class="ui divider"></div>
-    <form class="ui form new-event">
-      <div class="field">
-        <div class="ui text container">
-          <label>Titulo</label>
-          <input type="text" name="text" placeholder="">
-        </div>
-      </div>
-    </form>
-    {{ /if }}
-  </div>
-
-  <div class="ui hidden divider"></div>
-
-  <div class="ui text borderless container">
-    <h2 class="ui header">Eventos ({{ numberOfJobs }})</h2>
-    <div class="ui three column grid">
-      {{ #each events }}
-      {{ >event }}
-      {{ /each }}
-    </div>
-  </div>
+  <template name="main">
+    {{ > Template.dynamic template=content}}
+  </template>
 
 </body>
