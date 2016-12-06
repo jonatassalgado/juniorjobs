@@ -1,29 +1,25 @@
 <body>
 
-  <div class="ui borderless main menu">
-    <div class="ui text container">
-      <div class="item">
-        <img src="/images/logo.png">
-      </div>
-      <a class="item">Features</a>
-      <a class="item">Testimonials</a>
-      <a class="item right">{{ >loginButtons }}</a>
-    </div>
-  </div>
+  {{ >navbar }}
 
+  <div class="ui hidden divider"></div>
 
   <div class="ui text borderless container">
-    <h2>Vagas de Emprego ({{ numberOfJobs }})</h2>
 
     {{ #if currentUser }}
-    <label class="hide-completed">
+    <!-- <label class="hide-completed">
       <input type="checkbox"/>
       Esconder vagas preenchidas
-    </label>
+    </label> -->
 
-    <form class="new-event">
-      <div class="ui input">
-        <input type="text" name="text" placeholder="Escreva o cargo aqui...">
+    <h3 class="ui header">Criar novo evento</h3>
+    <div class="ui divider"></div>
+    <form class="ui form new-event">
+      <div class="field">
+        <div class="ui text container">
+          <label>Titulo</label>
+          <input type="text" name="text" placeholder="">
+        </div>
       </div>
     </form>
     {{ /if }}
@@ -32,6 +28,7 @@
   <div class="ui hidden divider"></div>
 
   <div class="ui text borderless container">
+    <h2 class="ui header">Eventos ({{ numberOfJobs }})</h2>
     <div class="ui three column grid">
       {{ #each events }}
       {{ >event }}

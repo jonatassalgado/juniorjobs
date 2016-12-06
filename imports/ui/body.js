@@ -4,6 +4,7 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 
 import { Events } from '../api/events.js';
 
+import './navbar.html';
 import './event.js';
 import './body.html';
 

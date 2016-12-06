@@ -1,19 +1,19 @@
 <template name="event">
   <div class="column">
-    <div class="ui fluid card">
+    <div class="ui fluid card event">
       <div class="content">
         {{ #if isOwner }}
-        <div class="right floated meta toggle-private">
+        <div class="right floated meta m-toggle-private">
           {{ #if private }}
-            Privado
+            <div class="event-private">Privado</div>
           {{ else }}
-            Público
+            <div class="event-private">Público</div>
           {{ /if }}
         </div>
         {{ /if }}
       </div>
-      <div class="image">
-        <img src="/images/avatar2/large/matthew.png">
+      <div class="event-image">
+
       </div>
       <div class="content">
         <div class="header">{{ title }} <i class="remove icon delete"></i></div>

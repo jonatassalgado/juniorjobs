@@ -21,7 +21,7 @@ Template.event.events({
   'click .delete' () {
     Meteor.call('events.remove', this._id);
   },
-  'click .toggle-private' () {
+  'click .m-toggle-private' () {
     Meteor.call('events.setPrivate', this._id, !this.private)
   }
 })
