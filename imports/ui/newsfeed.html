@@ -1,4 +1,4 @@
-<template name="newsfeed">
+<template name="Newsfeed">
   <div class="ui text borderless container">
     {{ #if currentUser }}
     <h3 class="ui header">Criar novo evento</h3>
@@ -20,7 +20,7 @@
     <h2 class="ui header">Eventos ({{ numberOfJobs }})</h2>
     <div class="ui three column grid">
       {{ #each events }}
-      {{ > newsfeed_event }}
+      {{ > Newsfeed_event }}
       {{ /each }}
     </div>
   </div>

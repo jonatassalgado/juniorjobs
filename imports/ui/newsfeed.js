@@ -7,12 +7,12 @@ import { Events } from '../api/events.js';
 import './newsfeed-event.js';
 import './newsfeed.html';
 
-Template.newsfeed.onCreated(function newsfeedOnCreated() {
+Template.Newsfeed.onCreated(function newsfeedOnCreated() {
   this.state = new ReactiveDict();
   Meteor.subscribe('events');
 });
 
-Template.newsfeed.helpers({
+Template.Newsfeed.helpers({
   events() {
     const instance = Template.instance();
     if (instance.state.get('hideCompleted')) {
@@ -25,7 +25,7 @@ Template.newsfeed.helpers({
   }
 });
 
-Template.newsfeed.events({
+Template.Newsfeed.events({
   'submit .new-event' (event) {
     event.preventDefault();
 

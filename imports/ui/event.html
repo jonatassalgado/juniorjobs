@@ -1,0 +1,13 @@
+<template name="Event">
+  <div class="ui text borderless container">
+    {{ #if Template.subscriptionsReady }}
+       {{ #with event }}
+         <h3>{{ title }}</h3>
+         <p>{{ username }}</p>
+         <p>{{ createdAt }}</p>
+       {{ /with }}
+     {{ else }}
+         <p>Loading...</p>
+     {{ /if }}
+   </div>
+</template>

@@ -6,7 +6,7 @@ import { Events } from '../api/events.js';
 
 import './newsfeed-event.html';
 
-Template.newsfeed_event.helpers({
+Template.Newsfeed_event.helpers({
   event() {
     return Events.find({ id: id });
   },
@@ -20,7 +20,7 @@ Template.newsfeed_event.helpers({
   }
 })
 
-Template.newsfeed_event.events({
+Template.Newsfeed_event.events({
   'click .toggle-checked' () {
     Events.update(this._id, {
       $set: { checked: ! this.checked },

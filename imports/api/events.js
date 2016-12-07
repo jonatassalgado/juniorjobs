@@ -13,6 +13,15 @@ if (Meteor.isServer) {
       ]
     });
   })
+
+  Meteor.publish('singleEvent', function singleEventPublication(eventId){
+    return Events.find({ _id: eventId }, {
+      $or: [
+        { private: { $ne: true } },
+        { owner: this.userId },
+      ]
+    });
+  })
 }
 
 Meteor.methods({
